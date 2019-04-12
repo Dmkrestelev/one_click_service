@@ -7,6 +7,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_babel import Babel, lazy_gettext as _l
 from config import Config
+from flask_cors import CORS
 import pymysql
 
 pymysql.install_as_MySQLdb()
@@ -20,7 +21,7 @@ babel = Babel()
 
 def create_app(config_class=Config):
     app = Flask(__name__, static_url_path='/static')
-
+    CORS(app)
     app.config.from_object(config_class)
 
     db.init_app(app)
