@@ -161,7 +161,7 @@ class Request(db.Model, Serializer):
             data = {
                 'description': m.description,
                 'date_create': m.date_create.isoformat() + 'Z',
-                'user': m.user.serialize() if m.user is not None else None,
+                'user': m.user.name if m.user is not None else None,
                 'status': m.status.serialize() if m.status is not None else None,
                 'services': m.services_type.serialize() if m.services_type is not None else None,
             }

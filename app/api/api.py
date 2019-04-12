@@ -16,10 +16,10 @@ def city_all():
 @bp.route('/company/', methods=['POST'])
 @crossdomain(origin='*')
 def company_create():
-    if not request.json or not 'name' in request.json:
+    if not request.values or not 'name' in request.values:
         return json.dumps({'error': 'incorrect_params'}), 400, {'ContentType': 'application/json'}
 
-    name = request.json['name']
+    name = request.values['name']
     Company.create(name)
     return jsonify({'success': True}), 200, {'ContentType': 'application/json'}
 
@@ -39,13 +39,12 @@ def types_all():
 
 
 @bp.route('/request/', methods=['POST'])
-@crossdomain(origin='*')
 def request_create():
-    if not request.json or not 'description' in request.json or not 'service_id' in request.json:
+    if not request.values or not 'description' in request.values or not 'service_id' in request.values:
         return json.dumps({'error': 'incorrect_params'}), 400, {'ContentType': 'application/json'}
 
-    description = request.json['description']
-    service_id = request.json['service_id']
+    description = request.values['description']
+    service_id = request.values['service_id']
     Request.create(description, service_id)
     return jsonify({'success': True}), 200, {'ContentType': 'application/json'}
 
@@ -65,5 +64,5 @@ def request_update(id):
 @crossdomain(origin='*')
 def request_all():
     requests = Request.all()
-    return json.dumps({'services': Request.serialize_list(requests)}), 200, {'ContentType': 'application/json'}
+    return json.dumps({'requests': Request.serialize_list(requests)}), 200, {'ContentType': 'application/json'}
 
