@@ -22,3 +22,5 @@ Traceback (most recent call last):
     'user': m.user.name.serialize() if m.user is not None else None,
 AttributeError: 'str' object has no attribute 'serialize'
 2019-04-13 00:13:42,934 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:61]
+2019-04-13 09:47:28,056 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:61]
+2019-04-20 13:24:28,284 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:61]
