@@ -49,3 +49,4 @@ Traceback (most recent call last):
     "Could not parse rfc1738 URL from string '%s'" % name)
 sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string '2'
 2019-04-28 12:38:47,198 INFO: x5 startup [in /Users/dmitrij/PycharmProjects/one_click/app/__init__.py:58]
+2019-04-28 12:39:22,508 INFO: x5 startup [in /Users/dmitrij/PycharmProjects/one_click/app/__init__.py:58]
