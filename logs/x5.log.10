@@ -1,11 +1,11 @@
-2019-04-12 23:13:12,885 ERROR: Exception on /api/request/ [POST] [in /Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+2019-04-12 23:19:56,820 ERROR: Exception on /api/request/ [POST] [in /Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
     context)
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
     cursor.execute(statement, parameters)
 psycopg2.IntegrityError: insert or update on table "requests" violates foreign key constraint "service"
-DETAIL:  Key (id)=(18) is not present in table "services_type".
+DETAIL:  Key (id)=(21) is not present in table "services_type".
 
 
 The above exception was the direct cause of the following exception:
@@ -23,9 +23,7 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/dmitrii/one_click/app/api/helper.py", line 42, in wrapped_function
-    resp = make_response(f(*args, **kwargs))
-  File "/Users/dmitrii/one_click/app/api/api.py", line 49, in request_create
+  File "/Users/dmitrii/one_click/app/api/api.py", line 48, in request_create
     Request.create(description, service_id)
   File "/Users/dmitrii/one_click/app/models.py", line 176, in create
     db.session.commit()
@@ -74,5 +72,7 @@ Traceback (most recent call last):
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
     cursor.execute(statement, parameters)
 sqlalchemy.exc.IntegrityError: (psycopg2.IntegrityError) insert or update on table "requests" violates foreign key constraint "service"
-DETAIL:  Key (id)=(18) is not present in table "services_type".
- [SQL: 'INSERT INTO requests (description, date_create, user_id, status_id, service_id) VALUES (%(description)s, %(date_create)s, %(user_id)s, %(status_id)s, %(service_id)s) RETURNING requests.id'] [parameters: {'description': '1', 'date_create': datetime.datetime(2019, 4, 12, 23, 13, 12, 852458), 'user_id': None, 'status_id': 1, 'service_id': '3'}]
+DETAIL:  Key (id)=(21) is not present in table "services_type".
+ [SQL: 'INSERT INTO requests (description, date_create, user_id, status_id, service_id) VALUES (%(description)s, %(date_create)s, %(user_id)s, %(status_id)s, %(service_id)s) RETURNING requests.id'] [parameters: {'description': '1', 'date_create': datetime.datetime(2019, 4, 12, 23, 19, 56, 794173), 'user_id': None, 'status_id': 1, 'service_id': '3'}]
+2019-04-12 23:38:25,926 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:60]
+2019-04-12 23:39:53,128 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:61]
