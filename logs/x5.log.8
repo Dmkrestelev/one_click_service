@@ -1,11 +1,11 @@
-2019-04-12 23:19:11,844 ERROR: Exception on /api/request/ [POST] [in /Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+2019-04-12 23:48:46,863 ERROR: Exception on /api/request/ [POST] [in /Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
     context)
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
     cursor.execute(statement, parameters)
 psycopg2.IntegrityError: insert or update on table "requests" violates foreign key constraint "service"
-DETAIL:  Key (id)=(20) is not present in table "services_type".
+DETAIL:  Key (id)=(23) is not present in table "services_type".
 
 
 The above exception was the direct cause of the following exception:
@@ -15,6 +15,8 @@ Traceback (most recent call last):
     response = self.full_dispatch_request()
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
@@ -23,9 +25,7 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/dmitrii/one_click/app/api/helper.py", line 42, in wrapped_function
-    resp = make_response(f(*args, **kwargs))
-  File "/Users/dmitrii/one_click/app/api/api.py", line 49, in request_create
+  File "/Users/dmitrii/one_click/app/api/api.py", line 48, in request_create
     Request.create(description, service_id)
   File "/Users/dmitrii/one_click/app/models.py", line 176, in create
     db.session.commit()
@@ -74,6 +74,5 @@ Traceback (most recent call last):
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
     cursor.execute(statement, parameters)
 sqlalchemy.exc.IntegrityError: (psycopg2.IntegrityError) insert or update on table "requests" violates foreign key constraint "service"
-DETAIL:  Key (id)=(20) is not present in table "services_type".
- [SQL: 'INSERT INTO requests (description, date_create, user_id, status_id, service_id) VALUES (%(description)s, %(date_create)s, %(user_id)s, %(status_id)s, %(service_id)s) RETURNING requests.id'] [parameters: {'description': '1', 'date_create': datetime.datetime(2019, 4, 12, 23, 19, 11, 815359), 'user_id': None, 'status_id': 1, 'service_id': '3'}]
-2019-04-12 23:19:32,727 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:60]
+DETAIL:  Key (id)=(23) is not present in table "services_type".
+ [SQL: 'INSERT INTO requests (description, date_create, user_id, status_id, service_id) VALUES (%(description)s, %(date_create)s, %(user_id)s, %(status_id)s, %(service_id)s) RETURNING requests.id'] [parameters: {'description': '1', 'date_create': datetime.datetime(2019, 4, 12, 23, 48, 46, 838372), 'user_id': None, 'status_id': 1, 'service_id': '2'}]

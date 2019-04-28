@@ -1,30 +1,27 @@
 import React, { Component } from 'react'
-import { axiosLocal } from 'services/axiosInstances'
-import { withRemoteData } from 'remote-data-provider'
-import logo from './logo.svg';
+import ServicesTypes from './components/ServicesTypes'
 import './App.css';
 
 
-let options = {
-    request: {
-        url: 'home/home.json'
-    },
-    axiosInstance: axiosLocal
-}
-
-@withRemoteData(options)
-
 class App extends Component {
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-        </header>
-      </div>
+    getServices = async () => {
+        const url = await
+        fetch('http://127.0.0.1:5000/api/services/', { mode: 'no-cors' });
+        const data = await url.json();
+        console.log(data);
+    };
 
-    );
-  }
+
+
+    render() {
+        return (
+            <div className="App">
+                <ServicesTypes getfunc = { this.getServices }></ServicesTypes>
+            </div>
+
+        );
+    }
 }
 
 export default App;
