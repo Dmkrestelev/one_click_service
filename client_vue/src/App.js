@@ -12,14 +12,11 @@ class App extends Component {
         console.log(data);
     };
 
-
-
     render() {
         return (
             <div className="App">
                 <ServicesTypes getfunc = { this.getServices }></ServicesTypes>
             </div>
-
         );
     }
 }

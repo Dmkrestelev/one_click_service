@@ -1,50 +1,51 @@
-2019-04-22 23:54:11,143 ERROR: Exception on /api/services/ [GET] [in /Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+2019-04-28 12:36:37,687 ERROR: Exception on /api/services/ [GET] [in /Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/util/_collections.py", line 988, in __call__
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/sqlalchemy/util/_collections.py", line 988, in __call__
     return self.registry[key]
-KeyError: 123145516105728
+KeyError: 123145460293632
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/dmitrii/one_click/app/api/helper.py", line 42, in wrapped_function
+  File "/Users/dmitrij/PycharmProjects/one_click/app/api/helper.py", line 42, in wrapped_function
     resp = make_response(f(*args, **kwargs))
-  File "/Users/dmitrii/one_click/app/api/api.py", line 37, in types_all
+  File "/Users/dmitrij/PycharmProjects/one_click/app/api/api.py", line 37, in types_all
     services = ServicesType.all()
-  File "/Users/dmitrii/one_click/app/models.py", line 77, in all
+  File "/Users/dmitrij/PycharmProjects/one_click/app/models.py", line 77, in all
     service = cls.query.all()
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 514, in __get__
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 514, in __get__
     return type.query_class(mapper, session=self.sa.session())
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
     return self.registry()
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/util/_collections.py", line 990, in __call__
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/sqlalchemy/util/_collections.py", line 990, in __call__
     return self.registry.setdefault(key, self.createfunc())
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2867, in __call__
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2867, in __call__
     return self.class_(**local_kw)
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 143, in __init__
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 143, in __init__
     bind = options.pop('bind', None) or db.engine
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 877, in engine
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 877, in engine
     return self.get_engine()
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 896, in get_engine
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 896, in get_engine
     return connector.get_engine()
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 553, in get_engine
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 553, in get_engine
     info = make_url(uri)
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/url.py", line 194, in make_url
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/url.py", line 194, in make_url
     return _parse_rfc1738_args(name_or_url)
-  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/url.py", line 243, in _parse_rfc1738_args
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/url.py", line 243, in _parse_rfc1738_args
     "Could not parse rfc1738 URL from string '%s'" % name)
 sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string '2'
+2019-04-28 12:38:47,198 INFO: x5 startup [in /Users/dmitrij/PycharmProjects/one_click/app/__init__.py:58]
