@@ -23,7 +23,7 @@ class OrderList extends Component {
         if (isFetching) return <div>...Loading</div>;
 
         // return <h1>{data.services[0].id}</h1>;
-        return <ul>{data.requests.map((key) => (<li key={key.id}>{key.date_create} {key.user} {key.status} {key.services}</li>))}</ul>
+        return <ul>{data.requests.map((key) => (<li key={key.id}>{key.date_create} {key.user} {key.status.name} {key.services.name}</li>))}</ul>
     }
 
 
