@@ -143,15 +143,15 @@ class User(UserMixin, db.Model, Serializer):
 class Request(db.Model, Serializer):
     __tablename__ = 'requests'
 
-    id = Column(ForeignKey('services_type.id'), ForeignKey('statuses.id'), primary_key=True, nullable=False, server_default=text("nextval('requests_id_seq'::regclass)"))
+    id = Column(Integer, primary_key=True, server_default=text("nextval('requests_id_seq'::regclass)"))
     description = Column(String(300))
-    date_create = Column(Time(True), primary_key=True, nullable=False)
     user_id = Column(ForeignKey('users.id'))
-    status_id = Column(Integer)
-    service_id = Column(Integer)
+    status_id = Column(ForeignKey('statuses.id'))
+    service_id = Column(ForeignKey('services_type.id'))
+    date_create = Column(Time(True))
 
+    service = relationship('ServicesType')
     status = relationship('Status')
-    services_type = relationship('ServicesType')
     user = relationship('User')
 
     def serialize_list(self):
@@ -163,7 +163,7 @@ class Request(db.Model, Serializer):
                 'date_create': m.date_create.isoformat() + 'Z',
                 'user': m.user.name if m.user is not None else None,
                 'status': m.status.serialize() if m.status is not None else None,
-                'services': m.services_type.serialize() if m.services_type is not None else None,
+                'services': m.service.serialize() if m.service is not None else None,
             }
             x.append(data)
         return x
