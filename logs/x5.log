@@ -92,3 +92,4 @@ Traceback (most recent call last):
 AttributeError: 'Request' object has no attribute 'services_type'
 2019-04-28 15:41:28,913 INFO: x5 startup [in /Users/dmitrij/PycharmProjects/one_click/app/__init__.py:58]
 2019-04-28 15:46:58,860 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:58]
+2019-04-28 16:38:37,142 INFO: x5 startup [in /Users/dmitrij/PycharmProjects/one_click/app/__init__.py:58]

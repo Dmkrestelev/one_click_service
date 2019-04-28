@@ -16,18 +16,17 @@ class ServicesTypes extends Component {
             .then(result => this.setState({data: result, isFetching: false }))
     }
 
-    createRequest() {
-
+    createRequest = (id) => {
         fetch('http://127.0.0.1:5000/api/request/', {
                 method: 'POST',
                 headers: {
                   'Accept': 'application/json',
-                  'Content-Type': 'application/json'
+                  'Content-Type': 'application/json',
+                  'dataType': 'application/json'
                 },
                 body: JSON.stringify({
                     description: 1,
-                    service_id: 1
-
+                    service_id: id,
                 })
             })
             .then(function(response) {
@@ -48,7 +47,7 @@ class ServicesTypes extends Component {
         if (isFetching) return <div>...Loading</div>;
 
         // return <h1>{data.services[0].id}</h1>;
-        return <div>{data.services.map((key) => (<button id={key.id} onClick={this.createRequest} >{key.name}</button>))}</div>
+        return <div>{data.services.map((key) => (<button onClick={(e) => this.createRequest(key.id, e)} >{key.name}</button>))}</div>
     }
 
 
