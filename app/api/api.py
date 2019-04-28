@@ -40,7 +40,7 @@ def types_all():
 
 @bp.route('/request/', methods=['POST'])
 def request_create():
-    if not request.values or not 'description' in request.values or not 'service_id' in request.values:
+    if not request.values or 'description' not in request.values or 'service_id' not in request.values:
         return json.dumps({'error': 'incorrect_params'}), 400, {'ContentType': 'application/json'}
 
     description = request.values['description']
