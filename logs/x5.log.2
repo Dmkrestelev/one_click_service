@@ -1,0 +1,116 @@
+2019-04-28 15:33:14,622 ERROR: Exception on /api/request/ [GET] [in /Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/dmitrij/PycharmProjects/one_click/app/api/helper.py", line 42, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "/Users/dmitrij/PycharmProjects/one_click/app/api/api.py", line 67, in request_all
+    return json.dumps({'requests': Request.serialize_list(requests)}), 200, {'ContentType': 'application/json'}
+  File "/Users/dmitrij/PycharmProjects/one_click/app/models.py", line 163, in serialize_list
+    'date_create': m.date_create.isoformat() + 'Z',
+AttributeError: 'NoneType' object has no attribute 'isoformat'
+2019-04-28 15:33:40,046 ERROR: Exception on /api/request/ [GET] [in /Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/dmitrij/PycharmProjects/one_click/app/api/helper.py", line 42, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "/Users/dmitrij/PycharmProjects/one_click/app/api/api.py", line 67, in request_all
+    return json.dumps({'requests': Request.serialize_list(requests)}), 200, {'ContentType': 'application/json'}
+  File "/Users/dmitrij/PycharmProjects/one_click/app/models.py", line 163, in serialize_list
+    'date_create': m.date_create.isoformat() + 'Z',
+AttributeError: 'NoneType' object has no attribute 'isoformat'
+2019-04-28 15:36:07,553 ERROR: Exception on /api/request/ [GET] [in /Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/dmitrij/PycharmProjects/one_click/app/api/helper.py", line 42, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "/Users/dmitrij/PycharmProjects/one_click/app/api/api.py", line 67, in request_all
+    return json.dumps({'requests': Request.serialize_list(requests)}), 200, {'ContentType': 'application/json'}
+  File "/Users/dmitrij/PycharmProjects/one_click/app/models.py", line 163, in serialize_list
+    'date_create': m.date_create.isoformat() + 'Z',
+AttributeError: 'NoneType' object has no attribute 'isoformat'
+2019-04-28 15:37:38,272 ERROR: Exception on /api/request/ [GET] [in /Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/dmitrij/PycharmProjects/one_click/app/api/helper.py", line 42, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "/Users/dmitrij/PycharmProjects/one_click/app/api/api.py", line 67, in request_all
+    return json.dumps({'requests': Request.serialize_list(requests)}), 200, {'ContentType': 'application/json'}
+  File "/Users/dmitrij/PycharmProjects/one_click/app/models.py", line 166, in serialize_list
+    'services': m.services_type.serialize() if m.services_type is not None else None,
+AttributeError: 'Request' object has no attribute 'services_type'
+2019-04-28 15:37:39,009 ERROR: Exception on /api/request/ [GET] [in /Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/dmitrij/PycharmProjects/one_click/app/api/helper.py", line 42, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "/Users/dmitrij/PycharmProjects/one_click/app/api/api.py", line 67, in request_all
+    return json.dumps({'requests': Request.serialize_list(requests)}), 200, {'ContentType': 'application/json'}
+  File "/Users/dmitrij/PycharmProjects/one_click/app/models.py", line 166, in serialize_list
+    'services': m.services_type.serialize() if m.services_type is not None else None,
+AttributeError: 'Request' object has no attribute 'services_type'
+2019-04-28 15:37:45,856 INFO: x5 startup [in /Users/dmitrij/PycharmProjects/one_click/app/__init__.py:58]
