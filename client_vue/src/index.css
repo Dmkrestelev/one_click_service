@@ -2,13 +2,55 @@ body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  monospace;
+}
+
+
+
+#big-block{
+  margin: 0 auto;
+  width: 556px;
+  height: auto;
+  overflow: hidden; /* может быть лишнее, но на всякий случай*/
+}
+.small-block{
+  float: left;
+  height: 253px;
+  width: 253px;
+  margin: 0 10px 14px 10px;
+  background-color: #ffffff; /* если надо для каждого блока свой цвет, то пропиши для каждого класс с сответстующим цветом */
+  border: 1px solid darkgray;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+}
+.no-margin{
+  margin-left: 0;
+}
+.first_step {
+  height: 600px;
+  margin: 0 auto;
+}
+.second_step {
+  height: 600px;
+  /*display: none;*/
+}
+.text_areas {
+  width: 540px;
+  height: 200px;
+  border-radius: 18px;
+}
+.d_none {
+  display: none;
+}
+button {
+  width: 150px;
+  height: 50px;
+  font-size: 14px;
 }
