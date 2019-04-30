@@ -1,116 +1,108 @@
-2019-04-28 12:36:37,687 ERROR: Exception on /api/services/ [GET] [in /Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+2019-04-28 18:08:52,480 ERROR: Exception on /api/userinfo/ [GET] [in /Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/sqlalchemy/util/_collections.py", line 988, in __call__
-    return self.registry[key]
-KeyError: 123145460293632
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: can't adapt type 'builtin_function_or_method'
 
-During handling of the above exception, another exception occurred:
+The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/dmitrij/PycharmProjects/one_click/app/api/helper.py", line 42, in wrapped_function
+  File "/Users/dmitrii/one_click/app/api/helper.py", line 42, in wrapped_function
     resp = make_response(f(*args, **kwargs))
-  File "/Users/dmitrij/PycharmProjects/one_click/app/api/api.py", line 37, in types_all
-    services = ServicesType.all()
-  File "/Users/dmitrij/PycharmProjects/one_click/app/models.py", line 77, in all
-    service = cls.query.all()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 514, in __get__
-    return type.query_class(mapper, session=self.sa.session())
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
-    return self.registry()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/sqlalchemy/util/_collections.py", line 990, in __call__
-    return self.registry.setdefault(key, self.createfunc())
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2867, in __call__
-    return self.class_(**local_kw)
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 143, in __init__
-    bind = options.pop('bind', None) or db.engine
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 877, in engine
-    return self.get_engine()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 896, in get_engine
-    return connector.get_engine()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 553, in get_engine
-    info = make_url(uri)
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/url.py", line 194, in make_url
-    return _parse_rfc1738_args(name_or_url)
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/url.py", line 243, in _parse_rfc1738_args
-    "Could not parse rfc1738 URL from string '%s'" % name)
-sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string '2'
-2019-04-28 12:38:47,198 INFO: x5 startup [in /Users/dmitrij/PycharmProjects/one_click/app/__init__.py:58]
-2019-04-28 12:39:22,508 INFO: x5 startup [in /Users/dmitrij/PycharmProjects/one_click/app/__init__.py:58]
-2019-04-28 14:54:59,243 INFO: x5 startup [in /Users/dmitrij/PycharmProjects/one_click/app/__init__.py:58]
-2019-04-28 14:57:07,883 INFO: x5 startup [in /Users/dmitrij/PycharmProjects/one_click/app/__init__.py:58]
-2019-04-28 15:18:29,149 ERROR: Exception on / [GET] [in /Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/Users/dmitrii/one_click/app/api/api.py", line 75, in request_userinfo
+    return json.dumps({'requests': Request.serialize_list(requests)}), 200, {'ContentType': 'application/json'}
+  File "/Users/dmitrii/one_click/app/models.py", line 165, in serialize_list
+    for m in self:
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) can't adapt type 'builtin_function_or_method' [SQL: 'SELECT users.id AS users_id, users.name AS users_name, users.password AS users_password, users.phone AS users_phone, users.company_id AS users_company_id, users.is_company AS users_is_company, users.city_id AS users_city_id \nFROM users \nWHERE users.id = %(id_1)s'] [parameters: {'id_1': <built-in function id>}]
+2019-04-28 18:09:26,288 ERROR: Exception on /api/userinfo/ [GET] [in /Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/dmitrij/PycharmProjects/one_click/app/auth/routes.py", line 14, in index
-    if current_user.is_authenticated:
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/werkzeug/local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/werkzeug/local.py", line 306, in _get_current_object
-    return self.__local()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_login/utils.py", line 26, in <lambda>
-    current_user = LocalProxy(lambda: _get_user())
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_login/utils.py", line 302, in _get_user
-    current_app.login_manager._load_user()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 317, in _load_user
-    return self.reload_user()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 276, in reload_user
-    "No user_loader has been installed for this "
-Exception: No user_loader has been installed for this LoginManager. Add one with the 'LoginManager.user_loader' decorator.
-2019-04-28 15:18:32,241 ERROR: Exception on / [GET] [in /Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: can't adapt type 'builtin_function_or_method'
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/dmitrij/PycharmProjects/one_click/app/auth/routes.py", line 14, in index
-    if current_user.is_authenticated:
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/werkzeug/local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/werkzeug/local.py", line 306, in _get_current_object
-    return self.__local()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_login/utils.py", line 26, in <lambda>
-    current_user = LocalProxy(lambda: _get_user())
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_login/utils.py", line 302, in _get_user
-    current_app.login_manager._load_user()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 317, in _load_user
-    return self.reload_user()
-  File "/Users/dmitrij/PycharmProjects/one_click/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 276, in reload_user
-    "No user_loader has been installed for this "
-Exception: No user_loader has been installed for this LoginManager. Add one with the 'LoginManager.user_loader' decorator.
+  File "/Users/dmitrii/one_click/app/api/helper.py", line 42, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "/Users/dmitrii/one_click/app/api/api.py", line 75, in request_userinfo
+    return json.dumps({'requests': Request.serialize_list(requests)}), 200, {'ContentType': 'application/json'}
+  File "/Users/dmitrii/one_click/app/models.py", line 165, in serialize_list
+    for m in self:
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) can't adapt type 'builtin_function_or_method' [SQL: 'SELECT users.id AS users_id, users.name AS users_name, users.password AS users_password, users.phone AS users_phone, users.company_id AS users_company_id, users.is_company AS users_is_company, users.city_id AS users_city_id \nFROM users \nWHERE users.id = %(id_1)s'] [parameters: {'id_1': <built-in function id>}]

@@ -2,7 +2,7 @@ import json
 from flask import request
 from app.api import bp
 from app.api.helper import crossdomain
-from app.models import City, Company, ServicesType, Request
+from app.models import City, Company, ServicesType, Request, User
 from flask import jsonify
 
 
@@ -65,4 +65,11 @@ def request_update(id):
 def request_all():
     requests = Request.all()
     return json.dumps({'requests': Request.serialize_list(requests)}), 200, {'ContentType': 'application/json'}
+
+
+@bp.route('/user/', methods=['GET'])
+@crossdomain(origin='*')
+def request_userinfo():
+    requests = User.userinfo(request.args.getlist('id')[0])
+    return json.dumps({'requests': User.serialize(requests)}), 200, {'ContentType': 'application/json'}
 
