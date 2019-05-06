@@ -139,6 +139,21 @@ class User(UserMixin, db.Model, Serializer):
     def get_id(self):
         return self.user_id
 
+    @classmethod
+    def userinfo(cls, userid):
+        crevice = cls.query.filter_by(id = userid).first()
+        return crevice
+
+    def serialize(self):
+
+        data = {
+            'id': self.id,
+            'phone': self.phone,
+            'name': self.name
+        }
+
+        return data
+
 
 class Request(db.Model, Serializer):
     __tablename__ = 'requests'
@@ -159,6 +174,7 @@ class Request(db.Model, Serializer):
 
         for m in self:
             data = {
+                'id': m.id,
                 'description': m.description,
                 'date_create': m.date_create.isoformat() + 'Z',
                 'user': m.user.name if m.user is not None else None,

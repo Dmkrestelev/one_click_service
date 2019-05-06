@@ -25,7 +25,7 @@ class ServicesTypes extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        debugger;
+        var data = new FormData(event.target);
         const x = 1;
 
         const form_data = {
