@@ -1,6 +1,6 @@
 import base64
 import os
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 from flask import json
 from flask_login import UserMixin
@@ -161,6 +161,8 @@ class Request(db.Model, Serializer):
     id = Column(Integer, primary_key=True, server_default=text("nextval('requests_id_seq'::regclass)"))
     description = Column(String(300))
     user_id = Column(ForeignKey('users.id'))
+    username = Column(String(300))
+    phone = Column(String(300))
     status_id = Column(ForeignKey('statuses.id'))
     service_id = Column(ForeignKey('services_type.id'))
     date_create = Column(Time(True))
@@ -186,8 +188,13 @@ class Request(db.Model, Serializer):
 
     # Создание заявки, по умолчанию со статусом открая
     @classmethod
-    def create(cls, description, service_id):
-        request = cls(description=description, service_id=service_id, date_create=datetime.today(), status_id=1)
+    def create(cls, description, service_id, username, phone):
+        request = cls(description=description,
+                      service_id=service_id,
+                      date_create=datetime.now(timezone.utc),
+                      status_id=1,
+                      username=username,
+                      phone=phone)
         db.session.add(request)
         db.session.commit()
         return True

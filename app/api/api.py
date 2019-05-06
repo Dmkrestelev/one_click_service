@@ -40,12 +40,14 @@ def types_all():
 
 @bp.route('/request/', methods=['POST'])
 def request_create():
-    if not request.json or 'description' not in request.json or 'service_id' not in request.json:
-        return json.dumps({'error': 'incorrect_params'}), 400, {'ContentType': 'application/json'}
+    # if not request.json or 'description' not in request.json or 'service_id' not in request.json:
+    #     return json.dumps({'error': 'incorrect_params'}), 400, {'ContentType': 'application/json'}
 
-    description = request.values['description']
-    service_id = request.values['service_id']
-    Request.create(description, service_id)
+    description = request.json['description']
+    service_id = request.json['service_id']
+    username = request.json['username']
+    phone = request.json['phone']
+    Request.create(description, service_id, username, phone)
     return jsonify({'success': True}), 200, {'ContentType': 'application/json'}
 
 

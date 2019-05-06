@@ -1,4 +1,4 @@
-2019-04-28 18:08:52,480 ERROR: Exception on /api/userinfo/ [GET] [in /Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+2019-04-28 18:29:03,495 ERROR: Exception on /api/user/ [GET] [in /Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
     context)
@@ -25,10 +25,14 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/dmitrii/one_click/app/api/helper.py", line 42, in wrapped_function
     resp = make_response(f(*args, **kwargs))
-  File "/Users/dmitrii/one_click/app/api/api.py", line 75, in request_userinfo
-    return json.dumps({'requests': Request.serialize_list(requests)}), 200, {'ContentType': 'application/json'}
-  File "/Users/dmitrii/one_click/app/models.py", line 165, in serialize_list
-    for m in self:
+  File "/Users/dmitrii/one_click/app/api/api.py", line 73, in request_userinfo
+    requests = User.userinfo(id)
+  File "/Users/dmitrii/one_click/app/models.py", line 144, in userinfo
+    crevice = cls.query.filter_by(id = userid).first()
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2755, in first
+    ret = list(self[0:1])
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2547, in __getitem__
+    return list(res)
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
     return self._execute_and_instances(context)
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
@@ -51,8 +55,8 @@ Traceback (most recent call last):
     context)
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
     cursor.execute(statement, parameters)
-sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) can't adapt type 'builtin_function_or_method' [SQL: 'SELECT users.id AS users_id, users.name AS users_name, users.password AS users_password, users.phone AS users_phone, users.company_id AS users_company_id, users.is_company AS users_is_company, users.city_id AS users_city_id \nFROM users \nWHERE users.id = %(id_1)s'] [parameters: {'id_1': <built-in function id>}]
-2019-04-28 18:09:26,288 ERROR: Exception on /api/userinfo/ [GET] [in /Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) can't adapt type 'builtin_function_or_method' [SQL: 'SELECT users.id AS users_id, users.name AS users_name, users.password AS users_password, users.phone AS users_phone, users.company_id AS users_company_id, users.is_company AS users_is_company, users.city_id AS users_city_id \nFROM users \nWHERE users.id = %(id_1)s \n LIMIT %(param_1)s'] [parameters: {'id_1': <built-in function id>, 'param_1': 1}]
+2019-04-28 18:30:07,970 ERROR: Exception on /api/user/ [GET] [in /Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
     context)
@@ -79,10 +83,14 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/dmitrii/one_click/app/api/helper.py", line 42, in wrapped_function
     resp = make_response(f(*args, **kwargs))
-  File "/Users/dmitrii/one_click/app/api/api.py", line 75, in request_userinfo
-    return json.dumps({'requests': Request.serialize_list(requests)}), 200, {'ContentType': 'application/json'}
-  File "/Users/dmitrii/one_click/app/models.py", line 165, in serialize_list
-    for m in self:
+  File "/Users/dmitrii/one_click/app/api/api.py", line 73, in request_userinfo
+    requests = User.userinfo(id)
+  File "/Users/dmitrii/one_click/app/models.py", line 144, in userinfo
+    crevice = cls.query.filter_by(id = userid).first()
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2755, in first
+    ret = list(self[0:1])
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2547, in __getitem__
+    return list(res)
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
     return self._execute_and_instances(context)
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
@@ -105,4 +113,5 @@ Traceback (most recent call last):
     context)
   File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
     cursor.execute(statement, parameters)
-sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) can't adapt type 'builtin_function_or_method' [SQL: 'SELECT users.id AS users_id, users.name AS users_name, users.password AS users_password, users.phone AS users_phone, users.company_id AS users_company_id, users.is_company AS users_is_company, users.city_id AS users_city_id \nFROM users \nWHERE users.id = %(id_1)s'] [parameters: {'id_1': <built-in function id>}]
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) can't adapt type 'builtin_function_or_method' [SQL: 'SELECT users.id AS users_id, users.name AS users_name, users.password AS users_password, users.phone AS users_phone, users.company_id AS users_company_id, users.is_company AS users_is_company, users.city_id AS users_city_id \nFROM users \nWHERE users.id = %(id_1)s \n LIMIT %(param_1)s'] [parameters: {'id_1': <built-in function id>, 'param_1': 1}]
+2019-04-28 18:30:14,617 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:58]
