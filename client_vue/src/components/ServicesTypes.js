@@ -12,7 +12,8 @@ class ServicesTypes extends Component {
             isFetching: true,
             error: null,
             type_id: null,
-            second_step: false
+            second_step: false,
+            message: ''
         };
     }
 
@@ -24,8 +25,13 @@ class ServicesTypes extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const data = new FormData(event.target);
         debugger;
+        const x = 1;
+
+        const form_data = {
+            Username: this.state.type_id,
+            Email: this.state.message,
+        }
 
         fetch('http://127.0.0.1:5000/api/request/', {
             method: 'POST',
@@ -34,7 +40,7 @@ class ServicesTypes extends Component {
                 'Content-Type': 'application/json',
                 'dataType': 'application/json'
             },
-            body: JSON.stringify({data})
+            body: JSON.stringify({form_data})
         })
             .then(function(response) {
                 if (!response.ok) {
