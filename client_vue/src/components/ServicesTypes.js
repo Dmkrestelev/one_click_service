@@ -24,7 +24,7 @@ class ServicesTypes extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const data = new FormData(event.target);
+        var data = new FormData(event.target);
         debugger;
 
         fetch('http://127.0.0.1:5000/api/request/', {
