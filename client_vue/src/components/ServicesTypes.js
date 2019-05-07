@@ -34,7 +34,7 @@ class ServicesTypes extends Component {
             description: data.get('description'),
             service_id: data.get('service_id'),
         };
-        
+
         fetch('http://127.0.0.1:5000/api/request/', {
             method: 'POST',
             headers: {

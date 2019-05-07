@@ -82,3 +82,49 @@ HINT:  You will need to rewrite or cast the expression.
  [SQL: 'INSERT INTO requests (description, user_id, username, phone, status_id, service_id, date_create) VALUES (%(description)s, %(user_id)s, %(username)s, %(phone)s, %(status_id)s, %(service_id)s, %(date_create)s) RETURNING requests.id'] [parameters: {'description': 'wwwww', 'user_id': None, 'username': 'ddddd', 'phone': '222222', 'status_id': 1, 'service_id': '3', 'date_create': datetime.datetime(2019, 5, 6, 23, 25, 49, 787664)}]
 2019-05-06 23:26:59,581 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:58]
 2019-05-06 23:27:09,705 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:58]
+2019-05-07 14:31:08,293 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:58]
+2019-05-07 14:39:04,446 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:58]
+2019-05-07 14:52:08,063 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:58]
+2019-05-07 14:57:36,748 ERROR: Exception on /api/request_info/ [GET] [in /Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/dmitrii/one_click/app/api/helper.py", line 42, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "/Users/dmitrii/one_click/app/api/api.py", line 82, in request_get_info
+    request_info = Request.get_info(request.args.getlist('id')[0])
+TypeError: get_info() missing 1 required positional argument: 'id'
+2019-05-07 14:59:50,675 ERROR: Exception on /api/request_info/ [GET] [in /Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dmitrii/one_click/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/dmitrii/one_click/app/api/helper.py", line 42, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "/Users/dmitrii/one_click/app/api/api.py", line 82, in request_get_info
+    request_info = Request.get_info(request.args.getlist('id')[0])
+TypeError: get_info() missing 1 required positional argument: 'id'
+2019-05-07 15:00:50,617 INFO: x5 startup [in /Users/dmitrii/one_click/app/__init__.py:58]

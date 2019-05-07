@@ -215,3 +215,8 @@ class Request(db.Model, Serializer):
             return True
         else:
             return False
+
+    @classmethod
+    def get_info(cls, rid):
+        request = cls.query.filter_by(id=rid).first()
+        return request

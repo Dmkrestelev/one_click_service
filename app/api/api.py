@@ -75,3 +75,9 @@ def request_userinfo():
     requests = User.userinfo(request.args.getlist('id')[0])
     return json.dumps({'requests': User.serialize(requests)}), 200, {'ContentType': 'application/json'}
 
+
+@bp.route('/request_info/', methods=['GET'])
+@crossdomain(origin='*')
+def request_get_info():
+    request_info = Request.get_info(request.args.getlist('id')[0])
+    return json.dumps({'requests': request_info}), 200, {'ContentType': 'application/json'}
