@@ -5,7 +5,6 @@ import {BrowserRouter as Router, NavLink, Route} from "react-router-dom";
 import Login from './auth/login.jsx';
 import Register from './auth/register.jsx';
 import './App.css';
-import './Register.css';
 
 import { PrivateRoute } from "./PrivateRoute.jsx";
 import {isLoggedIn} from './auth/auth.js';

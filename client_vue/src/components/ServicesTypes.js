@@ -77,7 +77,7 @@ class ServicesTypes extends Component {
             <div className={!second_step ? 'd_none' : 'second_step' }>
                 <h2>Немного о вашей проблеме:</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <input name="service_id" value={type_id}></input>
+                    <input name="service_id" type="hidden" value={type_id}></input>
                     <br></br>
                     <input name="username" placeholder="Имя"></input>
                     <br></br>
@@ -90,8 +90,5 @@ class ServicesTypes extends Component {
             </div>
         </div>
     }
-
-
-
 }
 export default ServicesTypes;
