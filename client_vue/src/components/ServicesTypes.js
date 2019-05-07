@@ -35,12 +35,14 @@ class ServicesTypes extends Component {
             service_id: data.get('service_id'),
         };
 
+
         fetch('http://127.0.0.1:5000/api/request/', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'dataType': 'application/json'
+                'dataType': 'application/json',
+                'access_token': localStorage.getItem("access_token")
             },
             body: JSON.stringify(form_data)
         })

@@ -16,7 +16,7 @@ const Log = () =>{
         return(
             <header className="navbar navbar-fixed-top__">
                 <div className="head_wrapper">
-                    <span className="main_logo">JoinMe</span>
+                    <span className="main_logo">One click service</span>
                     <span className="main_menu"> <NavLink to="/">Оставить заявку</NavLink></span>
                     <span className="main_menu"> <NavLink to="/stuff/">Список заявок</NavLink></span>
 
