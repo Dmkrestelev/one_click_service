@@ -147,4 +147,4 @@ def register():
 @crossdomain(origin='*')
 def request_get_info():
     request_info = Request.get_info(request.args.getlist('id')[0])
-    return json.dumps({'requests': request_info}), 200, {'ContentType': 'application/json'}
+    return json.dumps({'username': request_info.username, 'phone':request_info.phone}), 200, {'ContentType': 'application/json'}

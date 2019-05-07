@@ -1,0 +1,11 @@
+.ords li{
+    margin: 20px;
+}
+
+.ords li span{
+    border: 1px solid lightslategrey;
+    margin-left: 15px;
+    padding: 5px;
+    min-width: 200px;
+    display: table-cell;
+}

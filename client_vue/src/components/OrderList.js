@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-
+import './OrderList.css';
 
 class OrderList extends Component {
 
@@ -11,8 +11,8 @@ class OrderList extends Component {
                 requests: [{
                     id: null,
                     date_create: null,
-                    username: '',
-                    userphone: '',
+                    username: null,
+                    phone: null,
                     status: {
                         name: null
                     },
@@ -20,7 +20,11 @@ class OrderList extends Component {
                         name: null
                     }
                 }]
-            }, isFetching: true, error: null, uinfo: null };
+            }, isFetching: true, error: null,
+            uinfo: {
+                username: null,
+                phone: null
+            } };
     }
 
     componentDidMount() {
@@ -32,29 +36,33 @@ class OrderList extends Component {
 
 
     getUserInfo = (id, index) => {
-        debugger;
-        fetch('http://127.0.0.1:5000/api/request_info/?id='+1)
-
+        var res;
+        var new_data = this.state.data;
+        var tut = this;
+        fetch('http://127.0.0.1:5000/api/request_info/?id='+id)
             .then(response => response.json())
-            .then(result => this.setState({uinfo: result}))
+            .then(function(data) {
+                new_data.requests[index].username = data.username;
+                new_data.requests[index].phone = data.phone;
+                tut.setState({data: new_data});
+            })
             .catch(function(error) {
                 console.log(error);
             });
-            var new_data = this.state.data;
 
-        debugger;
-            new_data.requests[index].username = this.state.uinfo.username;
-            this.setState({data: new_data});
     };
 
     render() {
         const { data, isFetching, error, uinfo } = this.state;
         if (isFetching) return <div>...Loading</div>;
 
-
-        return <ul>{data.requests.map((key, index) => (<li index={index} key={key.id}
+        return <ul className="ords">{data.requests.map((key, index) => (<li index={index} key={key.id}
                                                     onClick={(e) => this.getUserInfo(key.id, index)}>
-            {key.date_create} {key.status.name} {key.services.name}
+            <span>{key.date_create}</span>
+            <span>{key.status.name}</span>
+            <span>{key.services.name}</span>
+            <span>{key.username}</span>
+            <span>{key.phone}</span>
 
         </li>))}</ul>
     }
