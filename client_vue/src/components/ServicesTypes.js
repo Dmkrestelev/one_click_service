@@ -26,12 +26,14 @@ class ServicesTypes extends Component {
     handleSubmit(event) {
         event.preventDefault();
         var data = new FormData(event.target);
-        const x = 1;
+
 
         const form_data = {
-            Username: this.state.type_id,
-            Email: this.state.message,
-        }
+            username: data.get('username'),
+            phone: data.get('phone'),
+            description: data.get('description'),
+            service_id: data.get('service_id'),
+        };
 
         fetch('http://127.0.0.1:5000/api/request/', {
             method: 'POST',
@@ -40,7 +42,7 @@ class ServicesTypes extends Component {
                 'Content-Type': 'application/json',
                 'dataType': 'application/json'
             },
-            body: JSON.stringify({form_data})
+            body: JSON.stringify(form_data)
         })
             .then(function(response) {
                 if (!response.ok) {
@@ -74,6 +76,10 @@ class ServicesTypes extends Component {
                 <h2>Немного о вашей проблеме:</h2>
                 <form onSubmit={this.handleSubmit}>
                     <input name="service_id" value={type_id}></input>
+                    <br></br>
+                    <input name="username" placeholder="Имя"></input>
+                    <br></br>
+                    <input name="phone" placeholder="Телефон"></input>
                     <br></br>
                     <textarea className="text_areas" name="description"></textarea>
                     <br></br>

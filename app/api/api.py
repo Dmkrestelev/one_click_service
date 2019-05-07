@@ -46,12 +46,14 @@ def types_all():
 
 @bp.route('/request/', methods=['POST'])
 def request_create():
-    if not request.json or 'description' not in request.json or 'service_id' not in request.json:
-        return json.dumps({'error': 'incorrect_params'}), 400, {'ContentType': 'application/json'}
+    # if not request.json or 'description' not in request.json or 'service_id' not in request.json:
+    #     return json.dumps({'error': 'incorrect_params'}), 400, {'ContentType': 'application/json'}
 
-    description = request.values['description']
-    service_id = request.values['service_id']
-    Request.create(description, service_id)
+    description = request.json['description']
+    service_id = request.json['service_id']
+    username = request.json['username']
+    phone = request.json['phone']
+    Request.create(description, service_id, username, phone)
     return jsonify({'success': True}), 200, {'ContentType': 'application/json'}
 
 
@@ -78,7 +80,6 @@ def request_all():
 def request_userinfo():
     requests = User.userinfo(request.args.getlist('id')[0])
     return json.dumps({'requests': User.serialize(requests)}), 200, {'ContentType': 'application/json'}
-
 
 parser_auth = reqparse.RequestParser()
 parser_auth.add_argument('phone', help='phone cannot be blank', required=True)
@@ -139,3 +140,9 @@ def register():
         }), 400, {'ContentType': 'application/json'}
     # except:
     #     raise Exception()
+
+@bp.route('/request_info/', methods=['GET'])
+@crossdomain(origin='*')
+def request_get_info():
+    request_info = Request.get_info(request.args.getlist('id')[0])
+    return json.dumps({'requests': request_info}), 200, {'ContentType': 'application/json'}

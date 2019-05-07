@@ -19,9 +19,6 @@ class OrderList extends Component {
                     services: {
                         name: null
                     }
-
-
-
                 }]
             }, isFetching: true, error: null, uinfo: null };
     }
@@ -35,7 +32,8 @@ class OrderList extends Component {
 
 
     getUserInfo = (id, index) => {
-        fetch('http://127.0.0.1:5000/api/user/?id='+1)
+        debugger;
+        fetch('http://127.0.0.1:5000/api/request_info/?id='+1)
 
             .then(response => response.json())
             .then(result => this.setState({uinfo: result}))
