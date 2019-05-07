@@ -1,0 +1,68 @@
+.signin_signup_content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 45px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    background: url('auth/background.svg') 100% 200% no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.signin_signup_content .case_for_form {
+    position: relative;
+    top: 0;
+    background-color: white;
+    width: auto;
+    min-width: 445px;
+    min-height: 350px;
+    height: auto;
+}
+.signin_signup_content form {
+    position: relative;
+    top: 0;
+    margin-top: 10%;
+    left: 72px;
+    max-width: 300px;
+}
+.signin_signup_content form div {
+    max-width: 300px;
+}
+.signin_signup_content form input {
+    border-radius: 15px;
+    height: 30px;
+    border: 1px solid #EEEEEE;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
+
+.signin_signup_content .next_step, .prev_step, .forget_pass{
+    text-decoration: underline;
+    color: #7971EA;
+    background-color: white;
+    border: none;
+    font-size: 19px;
+}
+.form-group  label{
+    display: block;
+    text-align: center;
+}
+.form-group input {
+    width: 300px;
+}
+button {
+    width: 146px;
+    height: 30px;
+    background-color: #7971EA;
+    border-radius: 15px;
+    color: white;
+    font-size: 14px;
+}
+.signii_butn {
+    margin: 0 auto;
+}

@@ -81,6 +81,7 @@ def request_userinfo():
     requests = User.userinfo(request.args.getlist('id')[0])
     return json.dumps({'requests': User.serialize(requests)}), 200, {'ContentType': 'application/json'}
 
+
 parser_auth = reqparse.RequestParser()
 parser_auth.add_argument('phone', help='phone cannot be blank', required=True)
 parser_auth.add_argument('pass', help='pass cannot be blank', required=True)
@@ -100,7 +101,7 @@ def auth():
             access_token = create_access_token(identity=data['phone'])
             refresh_token = create_refresh_token(identity=data['phone'])
             return json.dumps({
-                'phone': current_user.phone,
+                'name': current_user.name,
                 'access_token': access_token,
                 'refresh_token': refresh_token
             }), 400, {'ContentType': 'application/json'}
@@ -134,12 +135,13 @@ def register():
     access_token = create_access_token(identity=data['phone'])
     refresh_token = create_refresh_token(identity=data['phone'])
     return json.dumps({
-            'phone': data['phone'],
+            'name': data['name'],
             'access_token': access_token,
             'refresh_token': refresh_token
         }), 400, {'ContentType': 'application/json'}
     # except:
     #     raise Exception()
+
 
 @bp.route('/request_info/', methods=['GET'])
 @crossdomain(origin='*')

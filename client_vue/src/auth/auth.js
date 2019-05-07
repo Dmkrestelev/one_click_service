@@ -6,6 +6,7 @@ export function deleteTokens(){
     localStorage.removeItem("access_token");
     localStorage.removeItem("username");
 }
+
 export function requiredAuth(nextState, replace) {
   if (!isLoggedIn()) {
     replace({

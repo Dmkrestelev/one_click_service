@@ -37,3 +37,68 @@
     max-width: 450px;
   }
 }
+
+.main_menu A {
+    color: #393E46; /* Цвет ссылок */
+    text-decoration: none !important;
+}
+
+.main_menu A:visited {
+    color: #393E46; /* Цвет посещенных ссылок */
+}
+
+.registrarion_button a {
+    color: #7971EA !important;
+}
+
+.navbar {
+    padding-top: 5px;
+    min-height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.head_wrapper {
+    /*display: inline-flex;*/
+    width: 100%;
+    max-width: 1370px;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+}
+.main_logo {
+    width: 57px;
+    color: #7971EA;
+    margin-right: 120px;
+    font-size: 20px;
+}
+
+.avatar_img_header {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.img_logo {
+    width: 100%;
+}
+.auth_block_header {
+    width: 400px;
+    position: absolute;
+    right: 0;
+}
+.main_menu_right {
+    padding-right: 10px;
+    font-size: 16px;
+}
+.main_menu {
+    margin-right: 25px;
+    /*font-family: Roboto;*/
+    font-size: 16px;
+}
+.main_menu:hover {
+   color: #7971EA;
+}
+.main_menu .active {
+  color: #7971EA!important;
+}
