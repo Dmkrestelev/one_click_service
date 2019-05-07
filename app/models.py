@@ -1,13 +1,7 @@
 import base64
-import hashlib
 import os
-<<<<<<< HEAD
-from datetime import datetime, timedelta
-=======
 from datetime import datetime, timedelta, timezone
 
-from flask import json
->>>>>>> de8345f4986e22e6e5d5276cb5157d5c74d72f75
 from flask_login import UserMixin
 from sqlalchemy import *
 from sqlalchemy.orm import relationship
