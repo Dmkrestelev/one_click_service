@@ -33,7 +33,7 @@
 import React,{Component} from 'react';
 import ServicesTypes from './components/ServicesTypes'
 import OrderList from './components/OrderList'
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {BrowserRouter as Router, NavLink, Route} from "react-router-dom";
 import Login from './login.jsx';
 import './App.css';
 import NavBar from './NavBar.jsx';
@@ -47,10 +47,14 @@ export default class App extends Component{
         return(
             <Router>
                 <div>
-                    <NavBar/>
+
+                    <ul className="header">
+                        <li><NavLink to="/services">Home</NavLink></li>
+                        <li><NavLink to="/stuff">Stuff</NavLink></li>
+                    </ul>
                     <PrivateRoute exact isloggedin={isLoggedIn()} path="/" component={Home} />
                     <Route exact path="/login" component={Login} />
-                    <Route exact path="/" component={ServicesTypes}/>
+                    <Route exact path="/services" component={ServicesTypes}/>
                     <Route path="/stuff" component={OrderList}/>
                 </div>
             </Router>
