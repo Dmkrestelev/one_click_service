@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Button, HelpBlock, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
+import '../Register.css';
+
 
 function FieldGroup({ id, label, help, ...props }) {
     return (
