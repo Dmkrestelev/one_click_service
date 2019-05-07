@@ -2,6 +2,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 from flask import Flask
+from flask_jwt_extended import JWTManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
@@ -21,6 +22,8 @@ babel = Babel()
 
 def create_app(config_class=Config):
     app = Flask(__name__, static_url_path='/static')
+    app.config['JWT_SECRET_KEY'] = 'boost-is-the-secret-of-our-app'
+    jwt = JWTManager(app)
     CORS(app)
     app.config.from_object(config_class)
 

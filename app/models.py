@@ -1,8 +1,7 @@
 import base64
+import hashlib
 import os
 from datetime import datetime, timedelta
-
-from flask import json
 from flask_login import UserMixin
 from sqlalchemy import *
 from sqlalchemy.orm import relationship
@@ -88,7 +87,7 @@ class Status(db.Model, Serializer):
 class User(UserMixin, db.Model, Serializer):
     __tablename__ = 'users'
 
-    id = Column(Integer, primary_key=True, server_default=text("nextval('users_id_seq'::regclass)"))
+    user_id = Column(Integer, primary_key=True, server_default=text("nextval('users_id_seq'::regclass)"))
     name = Column(String(100), nullable=False)
     password = Column(String(50), nullable=False)
     phone = Column(String(20), nullable=False)
@@ -160,7 +159,7 @@ class Request(db.Model, Serializer):
 
     id = Column(Integer, primary_key=True, server_default=text("nextval('requests_id_seq'::regclass)"))
     description = Column(String(300))
-    user_id = Column(ForeignKey('users.id'))
+    user_id = Column(ForeignKey('users.user_id'))
     status_id = Column(ForeignKey('statuses.id'))
     service_id = Column(ForeignKey('services_type.id'))
     date_create = Column(Time(True))
@@ -208,3 +207,6 @@ class Request(db.Model, Serializer):
             return True
         else:
             return False
+
+
+
