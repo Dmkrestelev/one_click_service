@@ -50,7 +50,7 @@ Jinja2==2.10
 MarkupSafe==1.0
 MongoAlchemy==0.19
 passlib==1.7.1
-PyJWT==1.6.4
+PyJWT==2.4.0
 pytz==2018.4
 six==1.11.0
 Werkzeug==0.14.1
